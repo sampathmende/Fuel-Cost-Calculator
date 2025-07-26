@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fuel Cost Calculator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- Simple Working Fuel Cost Calculator -->
+<div id="fuel-calculator">
+    
+    <!-- Schema.org Structured Data -->
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"WebApplication","name":"Fuel Cost Calculator","description":"Calculate fuel cost, consumption, and cost per kilometer for trips. Supports petrol, diesel, and CNG vehicles.","applicationCategory":"UtilityApplication","operatingSystem":"Web Browser","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}
+    </script>
+
+    <h1>⛽ Fuel Cost Calculator - Calculate Trip Fuel Expenses</h1>
+    <p class="description">Calculate your fuel cost, consumption, and cost per kilometer for any trip. Supports petrol, diesel, and CNG vehicles with accurate fuel efficiency calculations.</p>
+
+    <div style="text-align: center; margin-bottom: 20px;">
+        <img src="YOUR_WORDPRESS_IMAGE_URL_HERE" alt="Fuel Cost Calculator Banner" style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
+    </div>
+
+    <div class="intro">
+        <h2>How to Use the Fuel Cost Calculator</h2>
+        <p>Our fuel cost calculator helps you estimate the total fuel expense for your journey. Simply enter your vehicle details and trip information to get accurate calculations.</p>
+        <ul>
+            <li><strong>Fuel Type:</strong> Select petrol, diesel, or CNG based on your vehicle</li>
+            <li><strong>Fuel Price:</strong> Enter the current fuel price per liter or kg in your area</li>
+            <li><strong>Distance:</strong> Input the total distance of your trip in kilometers</li>
+            <li><strong>Vehicle Mileage:</strong> Enter your vehicle\'s fuel efficiency (km per liter or kg)</li>
+        </ul>
+        <p>The calculator will instantly show you the fuel required, total cost, and cost per kilometer for your trip.</p>
+    </div>
+    
+    <div class="form-group">
+        <label for="fuelType">Fuel Type</label>
+        <select id="fuelType" onchange="updatePlaceholders()">
+            <option value="">Select Fuel Type</option>
+            <option value="petrol">Petrol (Gasoline)</option>
+            <option value="diesel">Diesel</option>
+            <option value="cng">CNG (Compressed Natural Gas)</option>
+        </select>
+    </div>
+    
+    <div class="form-group">
+        <label for="fuelPrice">Fuel Price (per liter/kg)</label>
+        <input type="number" id="fuelPrice" step="0.01" min="0" placeholder="Enter current fuel price">
+    </div>
+    
+    <div class="form-row">
+        <div class="form-group">
+            <label for="distance">Distance (km)</label>
+            <input type="number" id="distance" step="0.1" min="0" placeholder="Enter trip distance">
+        </div>
+        
+        <div class="form-group">
+            <label for="mileage">Vehicle Mileage (km/l or km/kg)</label>
+            <input type="number" id="mileage" step="0.1" min="0" placeholder="Enter vehicle mileage">
+        </div>
+    </div>
+    
+    <button onclick="calculateFuel()">Calculate Fuel Cost</button>
+    
+    <div class="results" id="results">
+        <h3 style="text-align: center; color: #2c3e50; margin-bottom: 15px;">Your Trip Fuel Calculation Results</h3>
+        <div class="result-item">
+            <span class="result-label">Fuel Required:</span>
+            <span class="result-value" id="fuelRequired">-</span>
+        </div>
+        <div class="result-item">
+            <span class="result-label">Total Fuel Cost:</span>
+            <span class="result-value" id="totalCost">-</span>
+        </div>
+        <div class="result-item">
+            <span class="result-label">Cost per Kilometer:</span>
+            <span class="result-value" id="costPerKm">-</span>
+        </div>
+    </div>
+
+    <!-- SEO Content -->
+    <div style="margin-top: 25px; padding: 15px; background: #f8f9fa; border-radius: 5px; color: #495057; line-height: 1.5;">
+        <h2 style="color: #2c3e50; font-size: 18px; margin-bottom: 10px;">Understanding Fuel Cost Calculations</h2>
+        <p style="margin-bottom: 10px; font-size: 14px;">Calculating fuel costs for your trip involves key factors: distance, vehicle fuel efficiency (mileage), and current fuel price. Our calculator uses the formula: Fuel Required = Distance ÷ Mileage, and Total Cost = Fuel Required × Fuel Price.</p>
+        
+        <p style="margin-bottom: 10px; font-size: 14px;">For example, a 300 km trip in a car with 15 km/l efficiency and petrol at ₹100/liter needs 20 liters costing ₹2,000 total, with ₹6.67 per kilometer cost.</p>
+        
+        <p style="font-size: 14px;">Petrol vehicles offer good performance but higher costs. Diesel vehicles provide better mileage for long trips. CNG vehicles are most economical with lower per-kilometer costs.</p>
+    </div>
+
+    <div style="margin-top: 20px; padding: 15px; background: #e8f5e8; border-radius: 5px; border-left: 3px solid #28a745;">
+        <h3 style="color: #2c3e50; font-size: 16px; margin-bottom: 10px;">Tips to Reduce Fuel Costs</h3>
+        <ul style="color: #495057; margin-left: 15px;">
+            <li style="margin-bottom: 5px; font-size: 13px;">Maintain proper tire pressure to improve fuel efficiency by up to 3%</li>
+            <li style="margin-bottom: 5px; font-size: 13px;">Remove excess weight - every 100 kg increases consumption by 6-8%</li>
+            <li style="margin-bottom: 5px; font-size: 13px;">Use AC wisely - open windows at low speeds, AC at highway speeds</li>
+            <li style="margin-bottom: 5px; font-size: 13px;">Plan routes to avoid traffic and reduce idle time</li>
+            <li style="margin-bottom: 5px; font-size: 13px;">Regular maintenance including oil changes and air filter replacement</li>
+            <li style="font-size: 13px;">Drive smoothly with gradual acceleration and braking</li>
+        </ul>
+    </div>
+
+    <div style="margin-top: 20px; padding: 15px; background: #fff3cd; border-radius: 5px; border-left: 3px solid #ffc107;">
+        <h3 style="color: #2c3e50; font-size: 16px; margin-bottom: 10px;">Frequently Asked Questions</h3>
+        
+        <div style="margin-bottom: 10px;">
+            <div style="font-weight: 600; color: #495057; margin-bottom: 3px; font-size: 14px;">Q: How accurate is this fuel cost calculator?</div>
+            <div style="color: #6c757d; font-size: 13px;">A: The calculator provides estimates based on your input. Actual consumption may vary due to driving conditions, vehicle condition, and driving habits.</div>
+        </div>
+        
+        <div style="margin-bottom: 10px;">
+            <div style="font-weight: 600; color: #495057; margin-bottom: 3px; font-size: 14px;">Q: What factors affect vehicle mileage?</div>
+            <div style="color: #6c757d; font-size: 13px;">A: Mileage is affected by engine condition, tire pressure, vehicle weight, driving speed, traffic conditions, and maintenance quality.</div>
+        </div>
+        
+        <div>
+            <div style="font-weight: 600; color: #495057; margin-bottom: 3px; font-size: 14px;">Q: Should I use city or highway mileage figures?</div>
+            <div style="color: #6c757d; font-size: 13px;">A: Use the mileage that best represents your planned driving conditions. For mixed driving, use an average of city and highway mileage.</div>
+        </div>
+    </div>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
+

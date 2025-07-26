@@ -1,0 +1,185 @@
+/* Fuel Cost Calculator Styles */
+
+#fuel-calculator {
+    max-width: 700px;
+    margin: 20px auto;
+    font-family: Arial, sans-serif;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background: #fff;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+#fuel-calculator h1 {
+    color: #2c3e50;
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 24px;
+}
+
+#fuel-calculator .description {
+    color: #6c757d;
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 16px;
+}
+
+#fuel-calculator .form-group {
+    margin-bottom: 15px;
+}
+
+#fuel-calculator label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #495057;
+}
+
+#fuel-calculator input,
+#fuel-calculator select {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid #dee2e6;
+    border-radius: 5px;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+#fuel-calculator input:focus,
+#fuel-calculator select:focus {
+    outline: none;
+    border-color: #007bff;
+}
+
+#fuel-calculator .form-row {
+    display: flex;
+    gap: 15px;
+}
+
+#fuel-calculator .form-row .form-group {
+    flex: 1;
+}
+
+#fuel-calculator button {
+    width: 100%;
+    background: #007bff;
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+#fuel-calculator button:hover {
+    background: #0056b3;
+}
+
+#fuel-calculator .results {
+    margin-top: 20px;
+    padding: 15px;
+    background: #f8f9fa;
+    border-radius: 5px;
+    border: 1px solid #dee2e6;
+    display: none;
+}
+
+#fuel-calculator .results.show {
+    display: block;
+}
+
+#fuel-calculator .result-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+    border-bottom: 1px solid #dee2e6;
+}
+
+#fuel-calculator .result-item:last-child {
+    border-bottom: none;
+}
+
+#fuel-calculator .result-label {
+    font-weight: bold;
+    color: #495057;
+}
+
+#fuel-calculator .result-value {
+    color: #007bff;
+    font-weight: bold;
+    background: white;
+    padding: 3px 8px;
+    border-radius: 3px;
+    border: 1px solid #007bff;
+}
+
+#fuel-calculator .intro {
+    background: #f8f9fa;
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    border-left: 3px solid #007bff;
+}
+
+#fuel-calculator .intro h2 {
+    color: #2c3e50;
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+#fuel-calculator .intro p {
+    color: #495057;
+    margin-bottom: 8px;
+    font-size: 14px;
+}
+
+#fuel-calculator .intro ul {
+    color: #495057;
+    margin-left: 15px;
+}
+
+#fuel-calculator .intro li {
+    margin-bottom: 3px;
+    font-size: 14px;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    #fuel-calculator {
+        margin: 10px;
+        padding: 15px;
+    }
+    
+    #fuel-calculator .form-row {
+        flex-direction: column;
+        gap: 0;
+    }
+    
+    #fuel-calculator h1 {
+        font-size: 20px;
+    }
+}
+
+/* Additional styling for better presentation */
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+    font-family: Arial, sans-serif;
+}
+
+/* Print styles */
+@media print {
+    #fuel-calculator {
+        box-shadow: none;
+        border: 1px solid #000;
+    }
+    
+    #fuel-calculator button {
+        display: none;
+    }
+}
+
