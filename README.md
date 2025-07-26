@@ -1,6 +1,6 @@
 # Fuel Cost Calculator - GitHub Repository
 
-![Fuel Calculator Screenshot](https://images.unsplash.com/photo-1589810635657-232948472d98?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&h=600&q=80)
+![Fuel Calculator Screenshot](https://unifiedpensionschemes.com/wp-content/uploads/2025/07/fuel-cost-calculator.jpg)
 
 **Calculate trip fuel expenses accurately with this lightweight, mobile-friendly calculator.** Perfect for travelers, logistics companies, and anyone planning a road trip.
 
